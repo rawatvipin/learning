@@ -1,0 +1,37 @@
+<form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+
+  <div class="col-4">
+    <label class="label">Email</label>
+    <span *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched" style="color:red">*</span>
+    <input type="text" class="form-control" formControlName="email" [class.error]="isSubmit && loginForm.get('email').invalid">
+  </div>
+  <br>
+  <div class="col-4">
+    <label class="label">Password</label>
+    <span *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched" style="color:red">*</span>
+    <input type="password" class="form-control" formControlName="password" [class.error]="isSubmit && loginForm.get('password').invalid">
+  </div>
+  <div class="col-4">
+    <label class="label">Gender</label>
+    <select (ngModelChange)="changeGender($event)" class="form-control">
+      <option *ngFor="let item of arGender" [ngValue]="item">{{item.text}}</option>
+    </select>
+    </div>
+    <div *ngIf="selectedGender">
+      {{selectedGender.text}} {{selectedGender.value}}
+    </div>
+  <br>
+  <div class="col-4">
+    <button type="submit" class="btn btn-primary">Login</button>
+  </div>
+
+  
+</form>
+<!-- 
+<select class="form-control col-4" (onChange)="ngModelChange($event.target.value)">
+  <option>Select</option>
+  <option *ngFor="let item of arState" [ngValue]="item" >{{item.name}}</option>
+</select>
+<button (click)="setState(1)">Delhi</button>
+<button (click)="setState(2)">UP</button>
+<button (click)="setState(3)">UK</button> -->

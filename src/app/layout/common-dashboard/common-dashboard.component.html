@@ -1,0 +1,4 @@
+<app-admin-layout *ngIf="userData.email.toLowerCase()=='admin'; else employeeLayout"></app-admin-layout>
+<ng-template #employeeLayout>
+    <app-employee-layout></app-employee-layout>
+</ng-template>

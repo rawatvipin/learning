@@ -1,0 +1,21 @@
+
+<h1>Attribute Directive</h1>
+
+<input type="text" [(ngModel)]="data.color" placeholder="Enter Color">
+
+<p [appHighlight]="data" [defaultColor]="'red'">
+  directive works!
+</p>
+
+<br>
+<hr>
+<h1>Structural Directive</h1>
+<input type="text" [(ngModel)]="data.emotion" placeholder="Enter Emotion">
+
+<div [ngSwitch]="data?.emotion">
+    <p *ngSwitchCase="'rawat'">My Name is Vipin Rawat</p>
+  <p *ngSwitchCase="'happy'">Happy Emotion</p>
+  <p *ngSwitchCase="'sad'">Sad Emotion</p>
+  <p *ngSwitchCase="'confused'">Confused Emotion</p>
+  <p *ngSwitchDefault>No Emotion</p>
+</div>
